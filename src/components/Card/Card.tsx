@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ReactComponentElement } from "react";
 import image from "../../imagetest.jpg";
+import "./assets/Card.scss";
 
-type Props = { title: string; description: string; skillsList?: any[] };
+type Props = {
+  title: string;
+  description: string;
+  skillsList?: any[];
+  image: any;
+};
 
 const Card = (props: Props) => {
   const firstLetter = props.title.slice(0, 1);
@@ -10,9 +16,7 @@ const Card = (props: Props) => {
   return (
     <div className="card">
       <div className="card__header">
-        <div className="card__header__image">
-          <img src={image} alt="" />
-        </div>
+        <div className="card__header__image">{props.image}</div>
       </div>
       <div className="card__content">
         <div className="title-wrapper">

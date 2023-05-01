@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./assets/Header.scss";
 import Button from "../Button/Button";
 import { generateTitle } from "../../utils/generateTItle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
-  faTwitter,
   faReact,
   faHtml5,
   faCss3,
@@ -48,9 +48,11 @@ const Header = (props: Props) => {
         </p>
       </div>
 
-      <div className="container container--buttons">
-        <Button buttonText="Contact me" />
-        <Button buttonText="Download CV" />
+      <div className="header__footer">
+        <div className="container container--buttons">
+          <Button buttonText="Contact me" />
+          <Button buttonText="Download CV" />
+        </div>
       </div>
     </header>
   );

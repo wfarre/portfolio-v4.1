@@ -1,0 +1,122 @@
+.btn {
+  position: relative;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  height: 87%;
+  width: 97%;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 100ms;
+  // transform: rotateZ(-1deg);
+  z-index: 10;
+
+  &__firstletter {
+    color: red;
+    transition: all 100ms;
+  }
+
+  &::before {
+    content: " ";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #000000;
+    transform-origin: right center;
+    transform: scaleX(1);
+    transition: transform 150ms;
+    z-index: -1;
+  }
+
+  &:hover {
+    background-color: red;
+    cursor: pointer;
+
+    .btn__firstletter {
+      color: #000000;
+    }
+
+    &::after {
+      border-top: 35px solid red;
+    }
+
+    &::before {
+      transform: scaleX(0);
+      transition: transform 100ms;
+    }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  content: "";
+  background-color: #fff;
+  width: 150px;
+  height: 40px;
+  transform: skewX(-5deg) skewY(-3deg);
+  z-index: 1;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    height: 87%;
+    width: 97%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: red;
+    // transform: rotateZ(-1deg);
+
+    z-index: 1;
+  }
+}
+/* .button-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 0;
+    background-color: transparent;
+    right: -30px;
+    top: 0;
+    border-top: 40px solid white;
+    border-right: 12px solid transparent;
+    z-index: 1;
+  } */
+
+/* .btn::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 0;
+    background-color: transparent;
+    right: -30px;
+    top: 0;
+    border-top: 35px solid black;
+    border-right: 12px solid transparent;
+    z-index: 10;
+    transition: all 100ms;
+    transform: rotateZ(-1deg);
+  } */
+
+/* .btn::after {
+    content: " ";
+    position: absolute;
+    height: 120%;
+    width: 120%;
+    /* top: 0;
+    left: 0; */
+/* background-color: #fff;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+/* z-index: -1; */
+/* border-right: 15px solid transparent;
+    /* border-top: 40px solid #2963bd; */
+/* border-left: 10px solid transparent; */

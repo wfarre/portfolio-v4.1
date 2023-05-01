@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { generateTitle } from "./utils/generateTItle";
+import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
-import Button from "./components/Button/Button";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import SectionTitle from "./components/SectionTitle/SectionTitle";
 import Card from "./components/Card/Card";
-import { log } from "console";
+
+// require("dotenv").config();
+
+import Slide from "./components/Slide/Slide";
+import CarouselButton from "./components/CarouselButton/CarouselButton";
+
+import emailjs from "@emailjs/browser";
+
+import { ReactComponent as ProgrammingPic } from "./assets/decoration-image/programming.svg";
+import { ReactComponent as ResponsivePic } from "./assets/decoration-image/responsive.svg";
+import { ReactComponent as CodeTestingPic } from "./assets/decoration-image/coding-thinking.svg";
+import Carousel from "./components/Carousel/Carousel";
+import Section from "./components/Section/Section";
+
+import { ReactComponent as ContactImage } from "./assets/decoration-image/contact.svg";
+import Button from "./components/Button/Button";
 
 const skills = [
   {
@@ -35,17 +45,20 @@ const skills = [
         skillTag: "Redux",
       },
     ],
+    image: <ProgrammingPic className="svg" />,
   },
   {
     title: "Responsive",
     description:
       "I can code responsive websites. So, your website will be adapted to the different screen sizes.",
+    image: <ResponsivePic className="svg" />,
   },
 
   {
     title: "code testing",
     description:
       "The code HTML/CSS is always verified using W3C validators. I can also do unitary test using Jest.",
+    image: <CodeTestingPic className="svg" />,
   },
 ];
 
@@ -80,6 +93,35 @@ function App() {
     console.log(main);
   };
 
+  const form: any = useRef();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    const serviceId = process.env.REACT_APP_SERVICE_ID;
+    const templateId = process.env.REACT_APP_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+
+    console.log("hello");
+
+    if (
+      serviceId !== undefined &&
+      templateId !== undefined &&
+      publicKey !== undefined
+    ) {
+      console.log("yes!!!");
+
+      emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    }
+  };
+
   // useEffect(() =>)
 
   return (
@@ -88,33 +130,52 @@ function App() {
       <Header />
 
       <main>
-        <section className="section">
-          <header className="section__header">
-            <SectionTitle title={"Skills"} />
-          </header>
-          <div className="section__main">
-            <div className="container">
-              {/* <Card />
-              <Card />
-              <Card /> */}
+        <Section
+          additionalClass="skills"
+          title="Skills"
+          main={
+            <div className="section__main">
+              <div className="container">
+                {skills.map((skill) => {
+                  return (
+                    <Card
+                      title={skill.title}
+                      description={skill.description}
+                      skillsList={skill.skills}
+                      image={skill.image}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          }
+        />
 
-              {skills.map((skill) => {
+        <Section
+          title="About me"
+          additionalClass="about"
+          main={
+            <div className="container">
+              {aboutContent.map((content: string, index: number) => {
                 return (
-                  <Card
-                    title={skill.title}
-                    description={skill.description}
-                    skillsList={skill.skills}
-                  />
+                  <div
+                    key={content + index}
+                    className={
+                      index % 2 === 0 ? "card card--left" : "card card--right"
+                    }
+                  >
+                    <div className="text-wrapper">
+                      <p className="card__content__text">{content}</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>
-          </div>
-          <footer className="section__footer"></footer>
-        </section>
+          }
+        />
 
-        <section className="section section--about">
+        {/* <section className="section section--about">
           <header className="section__header">
-            {/* <h2 className="section__header__title">About me</h2> */}
             <SectionTitle title={"About Me"} />
           </header>
           <div
@@ -144,25 +205,72 @@ function App() {
             </div>
           </div>
           <footer className="section__footer"></footer>
-        </section>
+        </section> */}
 
-        <section className="section">
-          <header className="section__header">
-            {/* <h2 className="section__header__title">Portfolio</h2> */}
-            <SectionTitle title={"Portfolio"} />
-          </header>
-          <div className="section__main"></div>
-          <footer className="section__footer"></footer>
-        </section>
+        <Section
+          title="Porfolio"
+          additionalClass="portfolio"
+          main={<Carousel />}
+        />
 
-        <section className="section">
+        <section className="section section--contact">
           <header className="section__header">
-            {/* <h2 className="section__header__title">Contact me</h2> */}
             <SectionTitle title={"Contact me"} />
           </header>
-          <div className="section__main"></div>
+          <div className="section__main">
+            <div className="container">
+              <div className="decoration">
+                <div className="decoration__image">
+                  <ContactImage className="image" />
+                </div>
+              </div>
+              <form
+                ref={form}
+                action="POST"
+                className="contact-form"
+                onSubmit={handleSubmit}
+              >
+                <div className="contact-form__item">
+                  <label htmlFor="name" className="label">
+                    Name
+                  </label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="name"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div className="contact-form__item">
+                  <label htmlFor="email" className="label">
+                    Email
+                  </label>
+                  <input
+                    className="input"
+                    type="email"
+                    name="email"
+                    placeholder="email@email.com"
+                  />
+                </div>
+                <div className="contact-form__item">
+                  <label htmlFor="message" className="label">
+                    Message
+                  </label>
+                  <textarea
+                    className="input"
+                    name="message"
+                    placeholder="Write your message here..."
+                  />
+                </div>
+
+                <Button buttonText="Send" />
+              </form>
+            </div>
+          </div>
           <footer className="section__footer"></footer>
         </section>
+
+        {/* <Button buttonText="Send" /> */}
       </main>
 
       <footer className="footer"></footer>

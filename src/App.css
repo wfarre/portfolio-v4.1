@@ -6,11 +6,6 @@
   color: yellow;
 }
 
-.header {
-  padding: 5rem;
-  width: calc(50% - 5rem * 2);
-}
-
 .first-letter {
   display: inline-block;
   color: rgb(237, 27, 37);
@@ -45,7 +40,7 @@
 
 .double-letter {
   display: inline-block;
-  color: rgb(237, 27, 37);
+  color: #ed1b25;
   padding: 4px 5px;
   border: 2px solid #fff;
   transform: rotateZ(-10deg);
@@ -61,7 +56,7 @@
   padding: 2rem 5rem;
   text-align: center;
   /* background-color: rgb(237, 27, 37); */
-  margin: 2rem 0;
+  margin: 3.125rem 0;
 }
 
 .section__header {
@@ -80,73 +75,6 @@
   font-style: normal;
 }
 
-.card {
-  /* height: 650px; */
-  width: 30%;
-  /* background-color: pink; */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.card__header {
-  height: 300px;
-  width: 100%;
-  background-color: red;
-}
-
-.card__header__image {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.card__header__image img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.card__content__title {
-  /* position: relative; */
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  height: 87%;
-  width: 97%;
-  text-transform: uppercase;
-  font-weight: 700;
-  transition: all 100ms;
-  /* transform: rotateZ(-1deg); */
-  z-index: 10;
-  /* text-align: center; */
-}
-
-/* &__firstletter {
-  color: red;
-  transition: all 100ms;
-} */
-
-.card__content__title::before {
-  content: " ";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-color: #000000;
-  transform-origin: right center;
-  transform: scaleX(1);
-  transition: transform 150ms;
-  z-index: -1;
-}
-
 .title-wrapper {
   display: flex;
   justify-content: center;
@@ -163,44 +91,6 @@
   z-index: 10;
 }
 
-.card__content__text {
-  position: relative;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  height: calc(100% - 100px);
-  width: calc(97% - 2rem);
-  font-weight: 600;
-  transition: all 100ms;
-  /* transform: rotateZ(-1deg); */
-  z-index: 10;
-  padding: 50px 1rem;
-  z-index: 10;
-
-  /* text-align: center; */
-}
-
-.card__content__title__firstletter {
-  color: red;
-}
-
-.card__content__text::before {
-  content: " ";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-color: #000000;
-  transform: rotateZ(2deg);
-  z-index: -1;
-
-  /* transition: transform 150ms; */
-}
-
 .text-wrapper {
   display: flex;
   justify-content: center;
@@ -215,9 +105,9 @@
   z-index: 1;
 }
 
-.card__content {
-  position: relative;
-}
+/* .section--about .text-wrapper {
+  z-index: 999;
+} */
 
 .section--about .card {
   width: 40%;
@@ -225,6 +115,10 @@
 
 .section--about .container {
   flex-direction: column;
+  width: auto;
+  padding: 0 1rem;
+  /* justify-content: center; */
+  /* overflow: hidden; */
 }
 
 .section--about .card--left {
@@ -255,4 +149,75 @@
   width: 8px;
   background: gold;
   height: 0%;
+}
+
+.viewport {
+  width: 50%;
+  overflow: visible;
+}
+
+.select {
+  width: 50%;
+}
+
+.select .button-wrapper {
+  width: 100%;
+  height: 75px;
+}
+
+.slide-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style-type: none;
+}
+
+.svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.section--contact .container {
+  justify-content: space-around;
+}
+
+.section--contact .decoration {
+  width: 40vw;
+}
+
+.section--contact .decoration__image {
+  position: relative;
+  height: 100%;
+}
+
+.section--contact .decoration__image .image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.contact-form {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  text-align: left;
+  width: 30vw;
+}
+
+.contact-form__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form__item .input {
+  padding: 1rem;
+}
+
+.contact-form .button-wrapper {
+  align-self: flex-end;
 }
