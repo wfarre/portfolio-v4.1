@@ -1,42 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import CarouselButton from "../CarouselButton/CarouselButton";
-import Slide from "../Slide/Slide";
+import CarouselButton from "./CarouselButton/CarouselButton";
+import Slide from "./Slide/Slide";
+import useFetch from "../../utils/useFetch";
 
 type Props = {};
 
 const Carousel = (props: Props) => {
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [slides, setSlides] = useState([]);
 
   const setSlide = (id: number) => {
     console.log(id);
     setCurrentSlide(id);
   };
 
+  const { data, isLoaded, error } = useFetch("../../data/portfolio.json");
+
+  useEffect(() => {
+    data && setSlides(data);
+  }, [data]);
+
   return (
     <div className="container">
       <div className="viewport">
-        <Slide id="slide-1" title="Hello" currentSlide={currentSlide} />
-        <Slide id="slide-2" title="Rouge" currentSlide={currentSlide} />
-        <Slide id="slide-3" title="Bleu" currentSlide={currentSlide} />
+        {isLoaded === true &&
+          slides?.map((slide: any, key = 0) => {
+            key++;
+            return (
+              <Slide
+                key={"slide" + key}
+                id={"slide-" + key}
+                title={slide.title}
+                currentSlide={currentSlide}
+                image={slide.image}
+                description={slide.description}
+              />
+            );
+          })}
       </div>
 
       <div className="select">
         <ul className="slide-list">
-          <li className="slide-list__item">
-            <CarouselButton buttonText="Kasa" id="1" setSlide={setSlide} />
-          </li>
-          <li className="slide-list__item">
-            <CarouselButton id="2" buttonText="OhMyFood!" setSlide={setSlide} />
-          </li>
-
-          <li className="slide-list__item">
-            <CarouselButton
-              id="3"
-              buttonText="Hello Bank"
-              setSlide={setSlide}
-            />
-          </li>
+          {isLoaded === true &&
+            slides?.map((slide: any, key = 0) => {
+              key++;
+              return (
+                <CarouselButton
+                  key={"slidentn" + key}
+                  buttonText={slide.title}
+                  id={key.toString()}
+                  setSlide={setSlide}
+                />
+              );
+            })}
         </ul>
       </div>
     </div>

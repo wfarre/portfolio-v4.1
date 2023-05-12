@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 30%;
   gap: 2rem;
+
   &__header {
     height: 300px;
     width: 100%;
@@ -22,6 +23,7 @@
   }
   &__content {
     position: relative;
+
     &__title {
       /* position: relative; */
       position: absolute;

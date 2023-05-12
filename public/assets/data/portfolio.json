@@ -1,0 +1,40 @@
+[
+  {
+    "title": "Kasa",
+    "language": ["React"],
+    "description": "Bla blab laba",
+    "image": "./assets/portfolio-images/kasa.png",
+    "url": "",
+    "github": ""
+  },
+  {
+    "title": "Oh my food!",
+    "language": [],
+    "description": "",
+    "image": "./assets/portfolio-images/ohmyfood.png",
+    "url": "",
+    "github": ""
+  },
+  {
+    "title": "Fisheye",
+    "language": [],
+    "description": "blafdfer",
+    "image": "./assets/portfolio-images/fisheye.png",
+    "url": "",
+    "github": ""
+  },
+  {
+    "title": "Bookmark",
+    "language": [],
+    "description": "asfafetwwe",
+    "image": "./assets/portfolio-images/bookmark.png",
+    "url": "",
+    "github": ""
+  },
+  {
+    "title": "Multistep form",
+    "language": [],
+    "description": "",
+    "image": "./assets/portfolio-images/multistep.png"
+  }
+]

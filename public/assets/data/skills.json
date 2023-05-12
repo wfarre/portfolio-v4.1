@@ -1,0 +1,38 @@
+[
+  {
+    "title": "stack",
+    "description": "I am specialized in front-end development.  My stack is :",
+    "skills": [
+      {
+        "skillTag": "HTML"
+      },
+      {
+        "skillTag": "CSS"
+      },
+      {
+        "skillTag": "Javascript"
+      },
+      {
+        "skillTag": "Sass"
+      },
+      {
+        "skillTag": "React"
+      },
+      {
+        "skillTag": "Redux"
+      }
+    ],
+    "image": "./assets/decoration-image/coding-thinking.svg"
+  },
+  {
+    "title": "Responsive",
+    "description": "I can code responsive websites. So, your website will be adapted to the different screen sizes.",
+    "image": "./assets/decoration-image/responsive.svg"
+  },
+
+  {
+    "title": "code testing",
+    "description": "The code HTML/CSS is always verified using W3C validators. I can also do unitary test using Jest.",
+    "image": "./assets/decoration-image/coding-thinking.svg"
+  }
+]

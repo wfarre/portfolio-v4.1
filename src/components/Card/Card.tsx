@@ -16,7 +16,10 @@ const Card = (props: Props) => {
   return (
     <div className="card">
       <div className="card__header">
-        <div className="card__header__image">{props.image}</div>
+        <div className="card__header__image">
+          <img src={props.image} />
+          {/* {props.image} */}
+        </div>
       </div>
       <div className="card__content">
         <div className="title-wrapper">
