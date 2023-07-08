@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Button from "../Button/Button";
 import emailjs from "@emailjs/browser";
+import "./assets/ContactForm.scss";
 
 type Props = {};
 
@@ -68,7 +69,7 @@ const ContactForm = (props: Props) => {
           Message
         </label>
         <textarea
-          className="input"
+          className="input textarea"
           name="message"
           placeholder="Write your message here..."
         />

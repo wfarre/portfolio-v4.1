@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import CarouselButton from "./CarouselButton/CarouselButton";
 import Slide from "./Slide/Slide";
 import useFetch from "../../utils/useFetch";
+import { PorfolioFactory } from "../../factories/PorfolioFactory";
 
 type Props = {};
 
@@ -15,7 +16,11 @@ const Carousel = (props: Props) => {
     setCurrentSlide(id);
   };
 
-  const { data, isLoaded, error } = useFetch("../../data/portfolio.json");
+  const { data, isLoaded, error } = useFetch(
+    "../../data/portfolio.json",
+    PorfolioFactory,
+    "json"
+  );
 
   useEffect(() => {
     data && setSlides(data);

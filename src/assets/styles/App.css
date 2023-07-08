@@ -1,5 +1,6 @@
 .App {
   background-color: #000000;
+  position: relative;
 }
 
 .focus {
@@ -52,26 +53,6 @@
   color: yellow;
 }
 
-.section {
-  padding: 2rem 5rem;
-  text-align: center;
-  /* background-color: rgb(237, 27, 37); */
-  margin: 3.125rem 0;
-}
-
-.section__header {
-  margin-bottom: 50px;
-}
-
-.container {
-  display: flex;
-  justify-content: flex-start;
-  gap: 5rem;
-  /* width: 100%; */
-  width: auto;
-  padding: 0 1rem;
-}
-
 .skill {
   color: yellow;
   font-style: normal;
@@ -111,63 +92,6 @@
   z-index: 999;
 } */
 
-.section--skills {
-  background-color: #ed1b25;
-  position: relative;
-  /* background: radial-gradient(circle at 40% 40%, #ed1b25 25%, transparent 26%),
-  radial-gradient(circle at 60% 60%, #ed1b2580 25%, transparent 26%);
-  background-size: 2em 2em;
-  background-color: #000000;
-  opacity: 1; */
-}
-
-.section--skills:before {
-  position: absolute;
-  top: -120px;
-  left: 0;
-  content: " ";
-  /* width: 100%; */
-  height: 120px;
-  width: 100%;
-  /* background: radial-gradient(circle, #ed1b25 25%, transparent 26%),
-    radial-gradient(circle at bottom left, #ed1b25 12%, transparent 13%),
-    radial-gradient(circle at bottom right, #ed1b25 12%, transparent 13%),
-    radial-gradient(circle at top left, #ed1b25 12%, transparent 13%),
-    radial-gradient(circle at top right, #ed1b25 12%, transparent 13%);
-  background-size: 4em 4em;
-  background-color: #000000; */
-
-  background: radial-gradient(
-      circle at 25% 25%,
-      #ed1b25 20%,
-      transparent 21%,
-      transparent 100%
-    ),
-    radial-gradient(circle at 75% 75%, #ed1b25 15%, transparent 16%);
-  background-size: 2em 2em;
-  background-color: #000000;
-  opacity: 1;
-  clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
-}
-.section--skills:after {
-  position: absolute;
-  bottom: -120px;
-  left: 0;
-  content: " ";
-  /* width: 100%; */
-  height: 120px;
-  width: 100%;
-  background: radial-gradient(circle, #ed1b25 10%, transparent 11%),
-    radial-gradient(circle at bottom left, #ed1b25 5%, transparent 6%),
-    radial-gradient(circle at bottom right, #ed1b25 5%, transparent 6%),
-    radial-gradient(circle at top left, #ed1b25 5%, transparent 6%),
-    radial-gradient(circle at top right, #ed1b25 5%, transparent 6%);
-  background-size: 4em 4em;
-  background-color: #000000;
-  opacity: 1;
-  clip-path: polygon(0 0, 100% 100%, 100% 0, 0 0);
-}
-
 .section--about .card {
   width: 40%;
 }
@@ -188,31 +112,40 @@
   align-self: flex-end;
 }
 
-.section__main {
-  position: relative;
-  overflow-y: hidden;
-}
-
 .progress-container {
-  content: " ";
-  position: absolute;
+  /* content: " ";
+  position: fixed;
   top: 0;
   left: 50%;
   width: 8px;
+  height: 0;
   height: 100%;
-  background: #000000;
+  background: yellow;
+  z-index: 999;
+  transform-origin: top center;
+  transform: scaleX(0); */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /* right: 0; */
+  /* height: 10px; */
+  height: 100%;
+  width: 10px;
+  /* width: 400px; */
+  background: yellow;
+  transform-origin: top center;
   z-index: 999;
 }
 
-.progress-bar {
-  width: 8px;
+/* .progress-bar {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: gold;
-  height: 0%;
-}
-
-.section--portfolio .section__main {
-  overflow: visible;
-}
+  height: 100%;
+} */
 
 .viewport {
   /* width: 70%; */
@@ -270,23 +203,49 @@
   left: 0;
 }
 
-.contact-form {
+.modal {
+  position: fixed;
   display: flex;
-  gap: 16px;
+  justify-content: space-evenly;
   flex-direction: column;
-  text-align: left;
-  width: 30vw;
+  align-items: center;
+  background-color: #fff;
+  width: 70vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skewY(1deg) skewX(1deg);
+  z-index: 999;
 }
 
-.contact-form__item {
-  display: flex;
-  flex-direction: column;
+.modal-bg {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ed1b25;
+  z-index: 980;
+  opacity: 0.5;
 }
 
-.contact-form__item .input {
-  padding: 1rem;
+.modal::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) skewY(-1deg) skewX(-2deg);
+  width: 95%;
+  height: 95%;
+  background-color: black;
+  z-index: -1;
 }
 
-.contact-form .button-wrapper {
-  align-self: flex-end;
+.modal .textarea {
+  height: 20vh;
+}
+
+.modal .contact-form {
+  width: 40vw;
 }

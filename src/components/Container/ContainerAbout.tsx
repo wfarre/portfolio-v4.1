@@ -1,5 +1,12 @@
-import React, { useEffect, useState } from "react";
-import useFetch from "../../utils/useFetch";
+// import React, { useEffect, useState } from "react";
+// import useFetch from "../../utils/useFetch";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, useScroll } from "framer-motion";
+
+import "./assets/Container.scss";
+import { useRef } from "react";
 
 type Props = {};
 
@@ -11,33 +18,77 @@ const aboutContent: string[] = [
 ];
 
 const ContainerAbout = (props: Props) => {
+  // gsap.registerPlugin(ScrollTrigger);
+  // window.scrollTo(0, 0);
+
+  // gsap.from("#main", {
+  //   ScrollTrigger: "#main",
+  //   rotation: 15,
+  //   y: 15,
+  //   duration: 0.5,
+  // });
+
+  // const cards = document.querySelectorAll(".card");
+
+  // cards.forEach((card) => {
+  //   gsap.to(".card", {
+  //     scrollTrigger: {
+  //       scrub: true,
+  //     },
+  //     opacity: 0,
+  //   });
+  // });
+
   //   const [aboutContent, setAboutContent] = useState[];
-  const { data, isLoaded, error } = useFetch("../../data/about.json");
+  //   const { data, isLoaded, error } = useFetch("../../data/about.json");
 
   //   useEffect(() => {
   //     data && setAboutContent(data);
   //   });
+
+  //
+
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["0 0.5", "1 1"],
+  });
+
   return (
-    <div
-      className="container"
-      //  onWheel={() => setScrollingProgress()}
-      id="main"
-    >
-      <div className="progress-container">
-        <div className="progress-bar" id="myBar"></div>
-      </div>
-      {aboutContent.map((content: string, index: number) => {
-        return (
-          <div
-            key={content + index}
-            className={index % 2 === 0 ? "card card--left" : "card card--right"}
-          >
-            <div className="text-wrapper">
-              <p className="card__content__text">{content}</p>
+    <div>
+      <div
+        className="container"
+        //  onWheel={() => setScrollingProgress()}
+        id="main"
+        ref={scrollRef}
+      >
+        {/* <div className="progress-container"> */}
+
+        {/* </div> */}
+        <motion.div
+          // className="progress-bar"
+          className="progress-container"
+          id="myBar"
+          style={{ scaleY: scrollYProgress }}
+          // initial={{ scaleY: 0 }}
+          // whileInView={{ scaleY: 1 }}
+          // viewport={{ root: scrollRef }}
+        ></motion.div>
+        {aboutContent.map((content: string, index: number) => {
+          return (
+            <div
+              key={content + index}
+              className={
+                index % 2 === 0 ? "card card--left" : "card card--right"
+              }
+            >
+              <div className="text-wrapper">
+                <p className="card__content__text">{content}</p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

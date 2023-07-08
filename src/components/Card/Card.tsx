@@ -17,7 +17,7 @@ const Card = (props: Props) => {
     <div className="card">
       <div className="card__header">
         <div className="card__header__image">
-          <img src={props.image} />
+          <img src={props.image} alt="" />
           {/* {props.image} */}
         </div>
       </div>
@@ -32,15 +32,19 @@ const Card = (props: Props) => {
         </div>
 
         <div className="text-wrapper">
-          <p className="card__content__text">
-            {props.description}
+          <div className="card__content__text">
+            <p>{props.description}</p>
             <ul>
               {props.skillsList !== undefined &&
-                props.skillsList.map((skill) => {
-                  return <li>{skill.skillTag}</li>;
+                props.skillsList.map((skill, key = 0) => {
+                  return (
+                    <li className="skill" key={"skill" + key}>
+                      {skill.skillTag}
+                    </li>
+                  );
                 })}
             </ul>
-          </p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,35 +1,35 @@
-import React, { useEffect, useState, useRef } from "react";
-import "./App.css";
+import React from "react";
+import "./assets/styles/App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import Carousel from "./components/Carousel/Carousel";
 import Section from "./components/Section/Section";
 
-import { ReactComponent as ContactImage } from "./assets/decoration-image/contact.svg";
-import ContactForm from "./components/ContactForm/ContactForm";
 import ContainerAbout from "./components/Container/ContainerAbout";
 import ContainerSkills from "./components/Container/ContainerSkills";
+import ContainerContact from "./components/Container/ContainerContact";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
-  const [height, setHeight] = useState(0);
-  const [year, setYear] = useState<any>();
+  // const [height, setHeight] = useState(0);
+  // const [year, setYear] = useState<any>();
 
   const date = new Date();
 
-  const setScrollingProgress = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    let doc = document.body.scrollHeight;
-    let main = (document.getElementById("main") as HTMLBodyElement).offsetTop;
-    let win = window.innerHeight;
+  // const setScrollingProgress = () => {
+  //   const winScroll =
+  //     document.body.scrollTop || document.documentElement.scrollTop;
+  //   let doc = document.body.scrollHeight;
+  //   let main = (document.getElementById("main") as HTMLBodyElement).offsetTop;
+  //   let win = window.innerHeight;
 
-    let height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    let scrolled = ((winScroll - main) / height) * 260;
-    (document.getElementById("myBar") as HTMLBodyElement).style.height =
-      scrolled + "%";
-  };
+  //   let height =
+  //     document.documentElement.scrollHeight -
+  //     document.documentElement.clientHeight;
+  //   let scrolled = ((winScroll - main) / height) * 260;
+  //   (document.getElementById("myBar") as HTMLBodyElement).style.height =
+  //     scrolled + "%";
+  // };
 
   // const [skills, setSkills] = useState<skillType[]>([]);
 
@@ -105,17 +105,14 @@ function App() {
         <Section
           title="Contact me"
           additionalClass="contact"
-          main={
-            <div className="container">
-              <div className="decoration">
-                <div className="decoration__image">
-                  <ContactImage className="image" />
-                </div>
-              </div>
-              <ContactForm />ß
-            </div>
-          }
+          main={<ContainerContact />}
         />
+
+        <div className="modal-bg"></div>
+        <div className="modal">
+          <h3 className="modal--title">Please feel free to contact me!</h3>
+          <ContactForm />
+        </div>
       </main>
 
       <footer className="footer">

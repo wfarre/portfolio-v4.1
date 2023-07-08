@@ -1,0 +1,20 @@
+.contact-form {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  text-align: left;
+  width: 30vw;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    .input {
+      padding: 1rem;
+    }
+  }
+
+  .button-wrapper {
+    align-self: flex-end;
+  }
+}
