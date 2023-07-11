@@ -11,10 +11,15 @@ import {
   faJs,
 } from "@fortawesome/free-brands-svg-icons";
 
-type Props = {};
+type Props = { openMenu: Function };
 
 const Header = (props: Props) => {
   const [myTitle, setMyTitle] = useState<any[]>([]);
+
+  const handleClickContact = () => {
+    console.log("supervitamine");
+    props.openMenu();
+  };
 
   useEffect(() => {
     setMyTitle(generateTitle("William Farré"));
@@ -50,7 +55,10 @@ const Header = (props: Props) => {
 
       <div className="header__footer">
         <div className="container container--buttons">
-          <Button buttonText="Contact me" />
+          <Button
+            buttonText="Contact me"
+            onClick={() => handleClickContact()}
+          />
           <Button buttonText="Download CV" />
         </div>
       </div>

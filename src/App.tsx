@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./assets/styles/App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
@@ -9,12 +9,19 @@ import ContainerAbout from "./components/Container/ContainerAbout";
 import ContainerSkills from "./components/Container/ContainerSkills";
 import ContainerContact from "./components/Container/ContainerContact";
 import ContactForm from "./components/ContactForm/ContactForm";
+import { ClassificationType } from "typescript";
 
 function App() {
   // const [height, setHeight] = useState(0);
   // const [year, setYear] = useState<any>();
 
   const date = new Date();
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleContactMe = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
 
   // const setScrollingProgress = () => {
   //   const winScroll =
@@ -48,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Header />
+      <Header openMenu={handleContactMe} />
 
       <main>
         <Section
@@ -108,8 +115,11 @@ function App() {
           main={<ContainerContact />}
         />
 
-        <div className="modal-bg"></div>
-        <div className="modal">
+        <div className={modalIsOpen ? "modal-bg open" : "modal-bg"}></div>
+        <div className={modalIsOpen ? "modal open" : "modal"}>
+          <button className="close-btn" onClick={handleContactMe}>
+            <div className="cross"></div>
+          </button>
           <h3 className="modal--title">Please feel free to contact me!</h3>
           <ContactForm />
         </div>
@@ -127,7 +137,7 @@ function App() {
         </div>
         <div className="attribution">
           <p className="attribution__text">
-            Coded and design by William Farré ©️2023-{date.getFullYear()}
+            Coded and designed by William Farré ©️2023-{date.getFullYear()}
           </p>
         </div>
       </footer>

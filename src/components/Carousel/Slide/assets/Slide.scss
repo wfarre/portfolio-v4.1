@@ -3,15 +3,19 @@
   // position: relative;
   // display: block;
   // transition: display 400ms;
+  opacity: 0;
+  transform: translateX(50%);
 
-  animation: slide-appear 600ms forwards;
+  animation: slide-appear 800ms 300ms forwards;
   &__header {
     position: relative;
     overflow: visible;
 
     .title-wrapper {
-      opacity: 0;
-      animation: title-appear 300ms 300ms ease-in forwards;
+      // opacity: 0;
+      // opacity: 0;
+      transform: translateX(-30%) rotate(-90deg);
+      animation: title-appear 400ms 300ms ease-in forwards;
       width: 200px;
     }
     &__title {
@@ -80,20 +84,24 @@
   }
 
   &.hiding {
-    animation: slide-disappear 500ms forwards;
+    animation: slide-disappear 5000ms forwards;
   }
 
   &.hidden {
-    // position: absolute;
-    // left: 0;
-    // top: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
     // display: none;
     // transition: display 400ms;
-    display: none;
+    // display: none;
     // visibility: hidden;
     // .title-wrapper {
     //   text-transform: rotate(90deg);
-    // animation: slide-disappear 500ms forwards;
+    animation: slide-disappear 800ms forwards;
+
+    .title-wrapper {
+      animation: title-disappear 800ms forwards;
+    }
     // overflow: hidden;
 
     // }
@@ -123,6 +131,20 @@
     opacity: 1;
     transform: translateX(0) rotate(-3deg);
     display: none;
+  }
+}
+
+@keyframes title-disappear {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotate(-3deg);
+    // display: none;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translateX(-30%) rotate(-90deg);
   }
 }
 

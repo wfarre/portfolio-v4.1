@@ -214,8 +214,11 @@
   height: 90vh;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) skewY(1deg) skewX(1deg);
+  transform: translate(-50%, -50%) skewY(-1deg);
   z-index: 999;
+  display: none;
+  /* border: solid 5px#fff; */
+  /* border-width: 4px 4px 10px 10px; */
 }
 
 .modal-bg {
@@ -228,6 +231,15 @@
   background-color: #ed1b25;
   z-index: 980;
   opacity: 0.5;
+  display: none;
+}
+
+.open.modal-bg {
+  display: block;
+}
+
+.open.modal {
+  display: flex;
 }
 
 .modal::after {
@@ -235,9 +247,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) skewY(-1deg) skewX(-2deg);
-  width: 95%;
-  height: 95%;
+  transform: translate(-50%, -50%) skewY(-1deg) skewX(-1deg);
+  width: 97%;
+  height: 97%;
   background-color: black;
   z-index: -1;
 }
@@ -248,4 +260,57 @@
 
 .modal .contact-form {
   width: 40vw;
+}
+
+.close-btn {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  height: 60px;
+  width: 60px;
+  background-color: #fff;
+  border: 5px solid #fff;
+  overflow: hidden;
+  cursor: pointer;
+
+  /* transform: skewY(-5deg); */
+}
+
+.close-btn::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  background-color: #ed1b25;
+  transform-origin: center center;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: transform 300ms;
+  overflow: hidden;
+}
+
+/* .close-btn:hover {
+  background-color: #ed1b25;
+  transition: background-color 300ms;
+} */
+
+.close-btn:hover::before {
+  transform: scale(1);
+  transition: transform 300ms;
+}
+
+.cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+  background-image: url("../icons/close-btn.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 999;
 }
