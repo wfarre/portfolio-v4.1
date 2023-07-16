@@ -117,9 +117,7 @@ function App() {
 
         <div className={modalIsOpen ? "modal-bg open" : "modal-bg"}></div>
         <div className={modalIsOpen ? "modal open" : "modal"}>
-          <button className="close-btn" onClick={handleContactMe}>
-            <div className="cross"></div>
-          </button>
+          <button className="close-btn" onClick={handleContactMe}></button>
           <h3 className="modal--title">Please feel free to contact me!</h3>
           <ContactForm />
         </div>
@@ -130,11 +128,11 @@ function App() {
           <div className="address"></div>
           <div className="phone"></div>
         </div>
-        <div className="sns">
+        {/* <div className="sns">
           <ul className="sns__list">
             <li className="sns__list__item"></li>
           </ul>
-        </div>
+        </div> */}
         <div className="attribution">
           <p className="attribution__text">
             Coded and designed by William Farré ©️2023-{date.getFullYear()}

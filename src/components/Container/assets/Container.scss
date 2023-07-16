@@ -7,3 +7,26 @@
   width: auto;
   padding: 0 1rem;
 }
+
+.sns {
+  &__list {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+  }
+
+  .icon {
+    /* color: #fff; */
+    height: 24px;
+    width: 24px;
+    // color: rgb(237, 27, 37);
+    color: #fff;
+
+    &:hover {
+      transform: scale(1.5);
+      transition: all 300ms;
+      color: rgb(237, 27, 37);
+    }
+  }
+}

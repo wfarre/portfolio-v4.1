@@ -42,6 +42,8 @@ const Carousel = (props: Props) => {
                 description={slide.description}
                 url={slide.url}
                 github={slide.github}
+                goal={slide.goal}
+                languages={slide.languages}
               />
             );
           })}

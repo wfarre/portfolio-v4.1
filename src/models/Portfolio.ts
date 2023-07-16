@@ -1,5 +1,6 @@
 interface PortolioItem {
   title: string;
+  languages: string[];
   description: string;
   goal: string;
   image: string;
@@ -16,6 +17,7 @@ export class Portfolio {
   // this._github = data.github;
   title: string;
   description: string;
+  languages: string[];
   goal: string;
   image: string;
   url: string;
@@ -28,12 +30,18 @@ export class Portfolio {
     this.image = data.image;
     this.url = data.url;
     this.github = data.github;
+    this.languages = data.languages;
   }
   // }
 
   public get gettitle() {
     // this.title = title
     return this.title;
+  }
+
+  public get getlanguages() {
+    // this.title = title
+    return this.languages;
   }
 
   public get getdescription() {

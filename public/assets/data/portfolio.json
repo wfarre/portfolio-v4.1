@@ -1,7 +1,7 @@
 [
   {
     "title": "Kasa",
-    "language": ["React"],
+    "languages": ["React"],
     "goal":"This was the first React project with OpenClassrooms. The goal of the project was to get familiar with React using hooks and building re-usable components. As I was already familiar with React, it was a great opportunity to improve my skills in React.",
     "description": "The project was a Airbnb-like web application. I had to code the homepage, the house profile page and the about page. The homepage was built using a flexbox, as well as the house profile page. Using React made simpler the opening/closing of the accordeon boxes found in the about page and the house profile.",
     "image": "./assets/portfolio-images/kasa.png",
@@ -10,7 +10,7 @@
   },
   {
     "title": "Oh my food!",
-    "language": ["Sass","HTML"],
+    "languages": ["Sass","HTML"],
     "goal":"Get familiar with animations using CSS",
     "description": "The project consists on building an application for busy people who wants to order in a restaurant in advance: when they arrive at the restaurant, they can start eating without waiting. I tried to play around and have fun making interesting animations. The animation I struggled the most was the heart filling animation, partly due to the radiant backgroung.",
     "image": "./assets/portfolio-images/ohmyfood.png",
@@ -19,7 +19,7 @@
   },
   {
     "title": "Fisheye",
-    "language": ["HTML","Sass","Javascript"],
+    "languages": ["HTML","Sass","Javascript"],
     "goal":"Make an accessible website",
     "description": "I enjoyed making this project because I liked the design and I had to learn a lot about how to make an accessible website. Also, I had to push myself beyond my comfort zonw (compared to the previous projects I made), as I had to develop a sorting algorithm for the pictures.",
     "image": "./assets/portfolio-images/fisheye.png",
@@ -28,7 +28,7 @@
   },
   {
     "title": "Bookmark",
-    "language": ["Typescript","React","Sass"],
+    "languages": ["Typescript","React","Sass"],
     "goal":"Get familiar with Typescrip",
     "description": "I chose the simple deseign to practice and find new way of doing things in CSS or Javascript. Also, I thought it was a nice project to start practicing Typescript.",
     "image": "./assets/portfolio-images/bookmark.png",
@@ -37,7 +37,7 @@
   },
   {
     "title": "Multistep form",
-    "language": ["React", "Sass"],
+    "languages": ["React", "Sass"],
     "goal":"Build a multistep form",
     "description": "I choose theis project from frontendmentor.io because I wanted to build a multistep form as I didn't have chance before.",
     "image": "./assets/portfolio-images/multistep.png",

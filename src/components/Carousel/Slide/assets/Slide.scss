@@ -69,6 +69,47 @@
   &__main {
     opacity: 0;
     animation: main-appear 500ms ease-in 300ms forwards;
+
+    &__paragraph {
+      text-align: left;
+      &__title {
+        margin: 0;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        color: rgb(237, 27, 37);
+      }
+
+      &__content {
+        margin: 0;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .languages {
+      display: flex;
+      gap: 1rem;
+
+      .language {
+        color: yellow;
+      }
+    }
+
+    .external-links {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+
+      &__title {
+        // font-weight: 400;
+        font-size: 1rem;
+        color: rgb(237, 27, 37);
+      }
+    }
   }
   .links {
     display: flex;
@@ -80,6 +121,14 @@
       /* color: #fff; */
       height: 24px;
       width: 24px;
+      // color: rgb(237, 27, 37);
+      color: #fff;
+
+      &:hover {
+        transform: scale(1.5);
+        transition: all 300ms;
+        color: rgb(237, 27, 37);
+      }
     }
   }
 

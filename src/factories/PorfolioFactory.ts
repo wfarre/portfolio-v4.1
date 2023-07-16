@@ -7,6 +7,7 @@ interface PortfolioItem {
   url: string;
   github: string;
   goal: string;
+  languages: string[];
 }
 
 export class PorfolioFactory {

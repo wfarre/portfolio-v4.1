@@ -21,9 +21,13 @@ type Props = {
   description: string;
   url: string;
   github: string;
+  goal: string;
+  languages: string[];
 };
 
 const Slide = (props: Props) => {
+  console.log(props);
+
   return (
     <div
       className={
@@ -40,29 +44,41 @@ const Slide = (props: Props) => {
         </div>
       </div>
       <div className="slide__main">
-        <p>
-          {props.description}
-          dsjidjowiojjiojeoijf jcjdjfioe jdsiosjfioew jiosjod asjdiojd djdijiej
-          dojoijd fsdjiojioe jdsiosjfioew dsjidjowiojjiojeoijf jcjdjfioe
-          jdsiosjfioew jiosjod asjdiojd djdijiej dojoijd fsdjiojioe jdsiosjfioew
-          dsjidjowiojjiojeoijf jcjdjfioe jdsiosjfioew jiosjod asjdiojd djdijiej
-          dojoijd fsdjiojioe jdsiosjfioew
-          {props.url}
-        </p>
+        <div className="slide__main__paragraph">
+          <h4 className="slide__main__paragraph__title">Goal</h4>
+          <p className="slide__main__paragraph__content">{props.goal}</p>
+        </div>
+        <div className="slide__main__paragraph">
+          <h4 className="slide__main__paragraph__title">Description</h4>
+          <p className="slide__main__paragraph__content">{props.description}</p>
+        </div>
       </div>
       <div className="slide__footer">
-        <ul className="links">
-          <li className="links__item links__item--github">
-            <a href={props.github}>
-              <FontAwesomeIcon className="icon" icon={faGithub} />
-            </a>
-          </li>
-          <li className="links__item links__item--github">
-            <a href={props.url}>
-              <FontAwesomeIcon className="icon" icon={faGlobe} />
-            </a>
-          </li>
-        </ul>
+        <div className="languages">
+          {props.languages.map((language, key = 0) => {
+            key++;
+            return (
+              <span key={language + key} className="language">
+                {language}
+              </span>
+            );
+          })}
+        </div>
+        <div className="external-links">
+          <h4 className="external-links__title">External links :</h4>
+          <ul className="links">
+            <li className="links__item links__item--github">
+              <a href={props.github}>
+                <FontAwesomeIcon className="icon" icon={faGithub} />
+              </a>
+            </li>
+            <li className="links__item links__item--github">
+              <a href={props.url}>
+                <FontAwesomeIcon className="icon" icon={faGlobe} />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
