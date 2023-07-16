@@ -1,6 +1,7 @@
 interface PortolioItem {
   title: string;
   description: string;
+  goal: string;
   image: string;
   url: string;
   github: string;
@@ -15,6 +16,7 @@ export class Portfolio {
   // this._github = data.github;
   title: string;
   description: string;
+  goal: string;
   image: string;
   url: string;
   github: string;
@@ -22,6 +24,7 @@ export class Portfolio {
   constructor(data: PortolioItem) {
     this.title = data.title;
     this.description = data.description;
+    this.goal = data.goal;
     this.image = data.image;
     this.url = data.url;
     this.github = data.github;
@@ -33,22 +36,26 @@ export class Portfolio {
     return this.title;
   }
 
-  get getdescription() {
+  public get getdescription() {
     // this.title = title
     return this.description;
   }
 
-  get getimage() {
+  public get getgoal() {
+    return this.goal;
+  }
+
+  public get getimage() {
     // this.title = title
     return this.image;
   }
 
-  get geturl() {
+  public get geturl() {
     // this.title = title
     return this.url;
   }
 
-  get getgithub() {
+  public get getgithub() {
     // this.title = title
     return this.github;
   }

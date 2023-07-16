@@ -6,6 +6,7 @@ interface PortfolioItem {
   image: string;
   url: string;
   github: string;
+  goal: string;
 }
 
 export class PorfolioFactory {

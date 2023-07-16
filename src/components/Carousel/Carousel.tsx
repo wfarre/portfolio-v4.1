@@ -40,6 +40,8 @@ const Carousel = (props: Props) => {
                 currentSlide={currentSlide}
                 image={slide.image}
                 description={slide.description}
+                url={slide.url}
+                github={slide.github}
               />
             );
           })}
