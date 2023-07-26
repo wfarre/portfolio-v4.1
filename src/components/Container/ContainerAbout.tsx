@@ -7,14 +7,42 @@ import { motion, useScroll } from "framer-motion";
 
 import "./assets/Container.scss";
 import { useRef } from "react";
+import AboutCard from "../AboutCard/AboutCard";
 
 type Props = {};
 
-const aboutContent: string[] = [
-  "I am a front-end web developer specializing in React and currently, I am living in Kaohsiung, Taiwan. I can speak French, English and Japanese. I use mainly HTML, CSS, Javascript, React and Sass but I am also familiar with Redux and Jest for testing. ",
-  "Before becoming a web developer, I worked in the service industry for 10 years, including 3 years in Japan where I worked in the travel/hospitality industry. ",
-  "Why did I choose web development? I have always been interested in programming. When I was working in the travel industry, I had to use excel/ google sheets, and I really enjoyed making formula to do my work more efficiently. In 2020, I bought course on Udemy about Web development, I loved it immediately. ",
-  "I finished the course, then I practiced HTML, CSS, Javascript, React and Sass for 6 months. Then, I decided to deepen my knowledge in front-end web development and to be more job ready, I enrolled the “Front-end web developer - Javascript React”. There, I deepen my knowledge in HTML, CSS, Javascript, and React. I also learned unitary tests using Jest and store management using Redux.",
+// const aboutContent: string[] = [
+//   "I am a front-end web developer specializing in React and currently, I am living in Kaohsiung, Taiwan. I can speak French, English and Japanese. I use mainly HTML, CSS, Javascript, React and Sass but I am also familiar with Redux and Jest for testing. ",
+//   "Before becoming a web developer, I worked in the service industry for 10 years, including 3 years in Japan where I worked in the travel/hospitality industry. ",
+//   "Why did I choose web development? I have always been interested in programming. When I was working in the travel industry, I had to use excel/ google sheets, and I really enjoyed making formula to do my work more efficiently. In 2020, I bought course on Udemy about Web development, I loved it immediately. ",
+//   "I finished the course, then I practiced HTML, CSS, Javascript, React and Sass for 6 months. Then, I decided to deepen my knowledge in front-end web development and to be more job ready, I enrolled the “Front-end web developer - Javascript React”. There, I deepen my knowledge in HTML, CSS, Javascript, and React. I also learned unitary tests using Jest and store management using Redux.",
+// ];
+type Content = {
+  question: string;
+  answer: string;
+};
+
+const aboutContent: Content[] = [
+  {
+    question: "What do I do? ",
+    answer:
+      "I am a front-end web developer specializing in React and currently, I am living in Kaohsiung, Taiwan. I can speak French, English and Japanese. I use mainly HTML, CSS, Javascript, React and Sass but I am also familiar with Redux and Jest for testing. ",
+  },
+  {
+    question: "What did I do before? ",
+    answer:
+      "Before becoming a web developer, I worked in the service industry for 10 years, including 3 years in Japan where I worked in the travel/hospitality industry. ",
+  },
+  {
+    question: "Why did I choose web development? ",
+    answer:
+      "I have always been interested in programming. When I was working in the travel industry, I had to use excel, and I really enjoyed making formula to do my work more efficiently. In 2020, I bought a course on Udemy about Web development, I loved it immediately. ",
+  },
+  {
+    question: "How did I study? ",
+    answer:
+      "I finished the course, then I practiced HTML, CSS, Javascript, React and Sass for 6 months. Then, I enrolled an online degree called “Front-end web developer - Javascript React”. There, I deepen my knowledge in HTML, CSS, Javascript, and React. I also learned unitary tests using Jest and store management using Redux.",
+  },
 ];
 
 const ContainerAbout = (props: Props) => {
@@ -74,18 +102,24 @@ const ContainerAbout = (props: Props) => {
           // whileInView={{ scaleY: 1 }}
           // viewport={{ root: scrollRef }}
         ></motion.div>
-        {aboutContent.map((content: string, index: number) => {
+        {aboutContent.map((content: Content, index: number) => {
           return (
-            <div
-              key={content + index}
-              className={
-                index % 2 === 0 ? "card card--left" : "card card--right"
-              }
-            >
-              <div className="text-wrapper">
-                <p className="card__content__text">{content}</p>
-              </div>
-            </div>
+            <AboutCard
+              index={index}
+              content={content.answer}
+              question={content.question}
+              key={index + content.question}
+            />
+            // <div
+            //   key={content + index}
+            //   className={
+            //     index % 2 === 0 ? "card card--left" : "card card--right"
+            //   }
+            // >
+            //   <div className="text-wrapper">
+            //     <p className="card__content__text">{content}</p>
+            //   </div>
+            // </div>
           );
         })}
       </div>

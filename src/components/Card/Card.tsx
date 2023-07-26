@@ -34,16 +34,16 @@ const Card = (props: Props) => {
         <div className="text-wrapper">
           <div className="card__content__text">
             <p>{props.description}</p>
-            <ul>
-              {props.skillsList !== undefined &&
-                props.skillsList.map((skill, key = 0) => {
-                  return (
-                    <li className="skill" key={"skill" + key}>
-                      {skill.skillTag}
-                    </li>
-                  );
-                })}
-            </ul>
+            {/* <ul> */}
+            {props.skillsList !== undefined &&
+              props.skillsList.map((skill, key = 0) => {
+                return (
+                  <span className="skill" key={"skill" + key}>
+                    {skill.skillTag + ", "}
+                  </span>
+                );
+              })}
+            {/* </ul> */}
           </div>
         </div>
       </div>
